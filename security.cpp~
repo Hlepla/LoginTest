@@ -1,0 +1,108 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std ;
+
+void openfile();
+void readfile(ifstream& infile);
+int User_Input(string Username[] , string Password[]);
+void getsuccess(string);
+
+
+int main()
+{
+  openfile();
+
+  
+}
+
+
+void openfile()
+{
+  ifstream infile ;
+
+  infile.open("password.txt") ;
+
+  if(infile.fail())
+    {
+
+      cout << "An error has occured opening the file... " ;
+	return ;
+
+    }
+
+  else
+    {
+
+      readfile(infile);
+
+    }
+
+}
+
+void readfile(ifstream& infile)
+{
+  int i = 0 ;
+  
+  string usrArray[20] , passArray[20];
+  
+  while(infile.eof() == false)
+    {
+      infile >> usrArray[i] >> passArray[i] ;
+
+      cout << usrArray[i] << passArray[i] << endl ; // temp line to see if info reads into arrays
+    }
+
+  User_Input(usrArray,passArray) ;
+
+}
+
+int User_Input(string Username[20] , string Password[20])
+{
+  string user , pass ;
+
+ failure1:
+  
+  cout <<"Please enter your username: " ;
+  cin >> user ;
+
+  cout <<"Please enter your password: " ;
+  cin >>pass ;
+
+  for(int i=0 ; i < 20 ; i++)
+    {
+
+      if(user==Username[i] && pass==Password[i])
+	{
+
+	  getsuccess(user) ;
+	  break ;
+
+	}
+
+      else
+	{
+
+	  cout <<"Sorry, Username and/or password are incorrect, please try again. " << endl ;
+
+	  goto failure1 ;
+
+	}
+
+
+    }
+
+
+
+}
+
+void getsuccess(string user)
+{
+
+  cout <<"Welcome back, " << user << "Please remember to logout! " <<endl ;
+
+  return ;
+
+  
+}
