@@ -56,9 +56,9 @@ int getfilesize(ifstream& infile)
       ++number_of_lines ;
 
     }
-  
-   number_of_lines-- ;
-  
+
+  number_of_lines-- ;
+
   cout << "The number of lines in the file is:" << number_of_lines << endl ;
 
   return number_of_lines ;
@@ -138,4 +138,3 @@ void getsuccess(string user)
 
 
 }
- 
