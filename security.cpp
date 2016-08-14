@@ -8,7 +8,7 @@ void openfile();
 int getfilesize(ifstream& infile);
 void readfile(ifstream& infile , int sizeof_file);
 int User_Input(string Username[] , string Password[]);
-void getsuccess(string);
+int getsuccess(string);
 
 
 int main()
@@ -57,7 +57,7 @@ int getfilesize(ifstream& infile)
 
     }
 
-  number_of_lines-- ;
+  // number_of_lines = number_of_lines - 1 ;
 
   cout << "The number of lines in the file is:" << number_of_lines << endl ;
 
@@ -71,7 +71,6 @@ void readfile(ifstream& infile, int size)
 
   string usrArray[size] , passArray[size] ;
 
-
   while(infile.eof() == false)
     {
 
@@ -82,7 +81,9 @@ void readfile(ifstream& infile, int size)
       i++ ;
     }
 
-  cout <<"test1" << endl ;
+  infile.close();
+
+  //cout <<"test1" << endl ;
 
   User_Input(usrArray,passArray) ;
 
@@ -90,16 +91,16 @@ void readfile(ifstream& infile, int size)
 
 int User_Input(string Username[] , string Password[] )
 {
-  string user , pass ;
+  string user , pass ; 
 
-  cout << "test2" << endl ;
+  //cout << "test2" << endl ;
 
  failure1:
 
-  cout << "test below..." << endl ;
+  //cout << "test below..." << endl ;
 
-  cout << "test username:" << Username[0] << endl ;
-  cout << "test password:" << Password[0] << endl ;
+  // cout << "test username:" << Username[0] << endl ;
+  //cout << "test password:" << Password[0] << endl ;
 
 
   cout <<"Please enter your username: " ;
@@ -108,7 +109,7 @@ int User_Input(string Username[] , string Password[] )
   cout <<"Please enter your password: " ;
   cin >>pass ;
 
-  for(int i ; i < 3 ; i++)
+  for(int i=0 ; i < 3 ; i++)
     {
 
       if(user==Username[i] && pass==Password[i])
@@ -118,6 +119,8 @@ int User_Input(string Username[] , string Password[] )
           break ;
 
         }
+
+
     }
 
 
@@ -129,12 +132,12 @@ int User_Input(string Username[] , string Password[] )
 
 }
 
-void getsuccess(string user)
+int getsuccess(string user)
 {
 
   cout <<"Welcome back, " << user << " " << "Please remember to logout! " <<endl ;
 
-  return ;
+  return 0 ;
 
 
 }
