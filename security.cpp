@@ -8,7 +8,7 @@ using namespace std ;
 void openfile();
 int getfilesize(ifstream& infile);
 void readfile(ifstream& infile , int sizeof_file);
-int User_Input(string Username[] , string Password[]);
+int User_Input(string Username[] , string Password[] , int size);
 int getsuccess(string);
 int exit() ;
 
@@ -86,11 +86,11 @@ void readfile(ifstream& infile, int size)
 
   //cout <<"test1" << endl ;
 
-  User_Input(usrArray,passArray) ;
+  User_Input(usrArray,passArray, size) ;
 
 }
 
-int User_Input(string Username[] , string Password[] )
+int User_Input(string Username[] , string Password[], int size )
 {
   string user , pass ;
 
@@ -102,7 +102,7 @@ int User_Input(string Username[] , string Password[] )
   cout <<"Please enter your password: " ;
   cin >>pass ;
 
-  for(int i=0 ; i < 3 ; i++)
+  for(int i=0 ; i < size ; i++)
     {
 
       if(user==Username[i] && pass==Password[i])
