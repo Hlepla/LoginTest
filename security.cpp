@@ -14,7 +14,7 @@ int getsuccess(string);
 int main()
 {
   openfile();
-
+  
 
 }
 
@@ -116,13 +116,12 @@ int User_Input(string Username[] , string Password[] )
         {
 
           getsuccess(user) ;
-          break ;
+          
 
         }
 
 
     }
-
 
 
       cout << "Username and/or password is incorrect, please try again.." << endl ;
