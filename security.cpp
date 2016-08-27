@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 
+
 using namespace std ;
 
 void openfile();
@@ -9,12 +10,12 @@ int getfilesize(ifstream& infile);
 void readfile(ifstream& infile , int sizeof_file);
 int User_Input(string Username[] , string Password[]);
 int getsuccess(string);
-
+int exit() ;
 
 int main()
 {
   openfile();
-  
+
 
 }
 
@@ -91,17 +92,9 @@ void readfile(ifstream& infile, int size)
 
 int User_Input(string Username[] , string Password[] )
 {
-  string user , pass ; 
-
-  //cout << "test2" << endl ;
+  string user , pass ;
 
  failure1:
-
-  //cout << "test below..." << endl ;
-
-  // cout << "test username:" << Username[0] << endl ;
-  //cout << "test password:" << Password[0] << endl ;
-
 
   cout <<"Please enter your username: " ;
   cin >> user ;
@@ -116,17 +109,16 @@ int User_Input(string Username[] , string Password[] )
         {
 
           getsuccess(user) ;
-          
+          return 0 ;
 
         }
 
-
     }
 
+  cout << "Username and/or password is incorrect, please try again.." << endl ;
 
-      cout << "Username and/or password is incorrect, please try again.." << endl ;
+  goto failure1 ;
 
-      goto failure1 ;
 
 
 }
@@ -136,7 +128,6 @@ int getsuccess(string user)
 
   cout <<"Welcome back, " << user << " " << "Please remember to logout! " <<endl ;
 
-  return 0 ;
-
 
 }
+
